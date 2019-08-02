@@ -1,42 +1,17 @@
 import React, {Component} from 'react'
-import {Link} from 'react-router-dom'
-import axios from 'axios'
+import {Route, Link} from 'react-router-dom'
+import StepOne from '../StepOne/StepOne'
+import StepTwo from '../StepTwo/StepTwo'
+import StepThree from '../StepThree/StepThree'
 
 export default class Wziard extends Component{
-    state = {
-        name: '',
-        address: '',
-        city: '',
-        state: '',
-        zipcode: null
-    }
-
-    addNewHouse() {
-        const {history} = this.props
-        const {name, address, city, state, zipcode} = this.state
-        axios.post('/api/properties', {
-            name: name,
-            address: address,
-            city: city,
-            state: state,
-            zip: zipcode
-        })
-        .catch(err => alert(err.response.result.response))
-        history.push('/')
-    }
-
     render() {
         return (
             <div>
                 <div>
-                    <input placeholder={'Property Name'} onChange={e => this.setState({name: e.target.value})}/>
-                    <input placeholder={'Address'} onChange={e => this.setState({address: e.target.value})}/>
-                    <input placeholder={'City'} onChange={e => this.setState({city: e.target.value})}/>
-                    <input placeholder={'State'} onChange={e => this.setState({state: e.target.value})}/>
-                    <input placeholder={'Zipcode'} onChange={e => this.setState({zipcode: e.target.value})}/>
-                </div>
-                <div>
-                    <button onClick={() => {this.addNewHouse()}}>Complete</button>
+                    <Route component={StepOne} path={'/wizard/1'}/>
+                    <Route component={StepTwo} path={'/wizard/2'}/>
+                    <Route component={StepThree} path={'/wizard/3'}/>
                 </div>
                 <div>
                     <Link to={'/'}>

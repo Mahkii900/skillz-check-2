@@ -54,7 +54,7 @@ export default class Dashboard extends Component {
                     {houses}
                 </div>
                 <div>
-                    <Link to={'/wizard'}>
+                    <Link to={'/wizard/1'}>
                         <button>Add New Property</button>
                     </Link>
                 </div>
