@@ -47,7 +47,7 @@ export default class StepOne extends React.Component {
                 </div>
                 <div>
                     <Link to={'/wizard/2'}>
-                        <button onClick={() => this.updatePropLocation}>Next Step</button>
+                        <button onClick={() => this.updatePropLocation()}>Next Step</button>
                     </Link>
                 </div>
             </div>

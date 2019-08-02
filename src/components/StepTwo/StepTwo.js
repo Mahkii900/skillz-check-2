@@ -1,9 +1,30 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import store, {UPDATE_PROPERTY_IMG} from '../../store'
 
 export default class StepTwo extends React.Component {
-    state = {
-        img: ''
+    constructor() {
+        super()
+        const reduxState = store.getState()
+        this.state = {
+            img: reduxState.img
+        }    
+    }
+
+    componentDidMount() {
+        store.subscribe(() => {
+            const reduxState = store.getState()
+            this.setState({
+                img: reduxState.img
+            })
+        })
+    }
+
+    updatePropImg() {
+        store.dispatch(
+            {type: UPDATE_PROPERTY_IMG,
+            payload: this.state.img}
+        )
     }
 
     render() {
