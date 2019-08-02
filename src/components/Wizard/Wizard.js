@@ -1,6 +1,6 @@
-import react from 'react'
+import React, {Component} from 'react'
 
-export default class Wziard {
+export default class Wziard extends Component{
     render() {
         return (
             <div>
