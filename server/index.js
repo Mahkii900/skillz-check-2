@@ -10,6 +10,7 @@ app.use(express.json())
 
 //ENDPOINTS
 app.get('/api/houses', ctrl.getAllHouses) //Gets all houses
+app.post('/api/houses', ctrl.addNewHouse)
 
 //CONNECTION TO DATABASE
 massive(CONNECTION_STRING).then(db => {

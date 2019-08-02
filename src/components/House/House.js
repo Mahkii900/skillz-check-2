@@ -6,14 +6,30 @@ export default class House extends Component {
         return (
             <div>
                 <div>
-                    {props.name}
-                    {props.address}
-                    {props.city}
-                    {props.state}
-                    {props.zip}
-                    {props.img}
-                    {props.mortgage}
-                    {props.rent}
+                    <div>
+                        Name: {props.name}
+                    </div>
+                    <div>
+                        Address: {props.address}
+                    </div>
+                    <div>
+                        City: {props.city}
+                    </div>
+                    <div>
+                        State: {props.state}
+                    </div>
+                    <div>
+                        Zipcode: {props.zip}
+                    </div>
+                    <div>
+                        Img: {props.img}
+                    </div>
+                    <div>
+                        Mortgage: {props.mortgage}
+                    </div>
+                    <div>
+                        Rent: {props.rent}
+                    </div>
                 </div>
                 <div>
                     <button>Delete</button>

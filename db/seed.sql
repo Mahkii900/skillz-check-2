@@ -15,4 +15,4 @@ VALUES ('Park Place', '123 Boardwalk Ave', 'Monopoly City', 'CA', 12365, 'none',
 ('Boardwalk', '456 Boardwalk Ave', 'Monopoly City', 'CA', 12365, 'none', 200, 2000),
 ('Mediterranean', '687 Baltic St', 'Cash Town', 'TX', 45896, 'none', 30, 2),
 ('Baltic', '648 Baltic St', 'Cash Town', 'TX', 45896, 'none', 30, 4),
-('B&O RR', '17 N Railroad Junction', 'Steamyvile', 'CO', 74568, 'none', 100, 200);
+('B&O RR', '17 N Railroad Junction', 'Steamyville', 'CO', 74568, 'none', 100, 200);
