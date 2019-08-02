@@ -14,15 +14,12 @@ export default class Wziard extends Component{
     addNewHouse() {
         const {history} = this.props
         const {name, address, city, state, zipcode} = this.state
-        axios.post('/api/houses', {
+        axios.post('/api/properties', {
             name: name,
             address: address,
             city: city,
             state: state,
             zip: zipcode
-        })
-        .then(() => {
-            console.log('AOK')
         })
         .catch(err => alert(err.response.result.response))
         history.push('/')
@@ -32,10 +29,10 @@ export default class Wziard extends Component{
         return (
             <div>
                 <div>
-                    <input value={this.state.name} placeholder={'Property Name'} onChange={e => this.setState({name: e.target.value})}/>
-                    <input value={this.state.address} placeholder={'Address'} onChange={e => this.setState({address: e.target.value})}/>
-                    <input value={this.state.city} placeholder={'City'} onChange={e => this.setState({city: e.target.value})}/>
-                    <input value={this.state.state} placeholder={'State'} onChange={e => this.setState({state: e.target.value})}/>
+                    <input placeholder={'Property Name'} onChange={e => this.setState({name: e.target.value})}/>
+                    <input placeholder={'Address'} onChange={e => this.setState({address: e.target.value})}/>
+                    <input placeholder={'City'} onChange={e => this.setState({city: e.target.value})}/>
+                    <input placeholder={'State'} onChange={e => this.setState({state: e.target.value})}/>
                     <input placeholder={'Zipcode'} onChange={e => this.setState({zipcode: e.target.value})}/>
                 </div>
                 <div>

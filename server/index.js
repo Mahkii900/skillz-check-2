@@ -9,8 +9,9 @@ const ctrl = require('./controller')
 app.use(express.json())
 
 //ENDPOINTS
-app.get('/api/houses', ctrl.getAllHouses) //Gets all houses
-app.post('/api/houses', ctrl.addNewHouse)
+app.get('/api/properties', ctrl.getAllHouses) //Gets all properties
+app.post('/api/properties', ctrl.addNewHouse) //Adds new property
+app.delete('/api/properties/:id', ctrl.deleteHouse) //Deletes a property
 
 //CONNECTION TO DATABASE
 massive(CONNECTION_STRING).then(db => {

@@ -9,7 +9,7 @@ export default class Dashboard extends Component {
     }
 
     getAllHouses() {
-        axios.get('/api/houses').then(res => {
+        axios.get('/api/properties').then(res => {
             this.setState({houses: res.data})
         })
         .catch(err => alert(err.response.request.response))
