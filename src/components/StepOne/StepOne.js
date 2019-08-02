@@ -11,7 +11,7 @@ export default class StepOne extends React.Component {
             address: reduxState.address,
             city: reduxState.city,
             state: reduxState.st,
-            zipcode: reduxState.zipcode
+            zipcode: reduxState.zip
         }
     }
 
@@ -23,7 +23,7 @@ export default class StepOne extends React.Component {
                 address: reduxState.address,
                 city: reduxState.city,
                 state: reduxState.st,
-                zipcode: reduxState.zipcode
+                zipcode: reduxState.zip
             })
         })
     }
@@ -36,14 +36,15 @@ export default class StepOne extends React.Component {
     }
 
     render() {
+        const location = this.state
         return(
             <div>
                 <div>
-                    <input placeholder={'Property Name'} onChange={e => this.setState({name: e.target.value})}/>
-                    <input placeholder={'Address'} onChange={e => this.setState({address: e.target.value})}/>
-                    <input placeholder={'City'} onChange={e => this.setState({city: e.target.value})}/>
-                    <input placeholder={'State'} onChange={e => this.setState({state: e.target.value})}/>
-                    <input placeholder={'Zipcode'} onChange={e => this.setState({zipcode: e.target.value})}/>
+                    <input value={location.name} placeholder={'Property Name'} onChange={e => this.setState({name: e.target.value})}/>
+                    <input value={location.address} placeholder={'Address'} onChange={e => this.setState({address: e.target.value})}/>
+                    <input value={location.city} placeholder={'City'} onChange={e => this.setState({city: e.target.value})}/>
+                    <input value={location.state} placeholder={'State'} onChange={e => this.setState({state: e.target.value})}/>
+                    <input value={location.zipcode} placeholder={'Zipcode'} onChange={e => this.setState({zipcode: e.target.value})}/>
                 </div>
                 <div>
                     <Link to={'/wizard/2'}>

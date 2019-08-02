@@ -21,24 +21,24 @@ export default class StepTwo extends React.Component {
     }
 
     updatePropImg() {
-        store.dispatch(
-            {type: UPDATE_PROPERTY_IMG,
-            payload: this.state.img}
-        )
+        store.dispatch({
+            type: UPDATE_PROPERTY_IMG,
+            payload: this.state.img
+        })
     }
 
     render() {
         return(
             <div>
                 <div>
-                    <input placeholder={'Image URL'} onChange={e => this.setState({img: e.target.value})}/>
+                    <input value={this.state.img} placeholder={'Image URL'} onChange={e => this.setState({img: e.target.value})}/>
                 </div>
                 <div>
                     <Link to={'/wizard/1'}>
-                        <button>Previous Step</button>
+                        <button onClick={() => this.updatePropImg()}>Previous Step</button>
                     </Link>
                     <Link to={'/wizard/3'}>
-                        <button>Next Step</button>
+                        <button onClick={() => this.updatePropImg()}>Next Step</button>
                     </Link>
                 </div>
             </div>
