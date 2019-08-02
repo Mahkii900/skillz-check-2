@@ -32,7 +32,7 @@ export default class House extends Component {
                     </div>
                 </div>
                 <div>
-                    <button>Delete</button>
+                    <button onClick={() => props.deleteHouse(props.id)}>Delete</button>
                 </div>
             </div>
         )

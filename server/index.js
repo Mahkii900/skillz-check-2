@@ -13,10 +13,8 @@ app.get('/api/properties', ctrl.getAllHouses) //Gets all properties
 app.post('/api/properties', ctrl.addNewHouse) //Adds new property
 app.delete('/api/properties/:id', ctrl.deleteHouse) //Deletes a property
 
-//CONNECTION TO DATABASE
+//CONNECTION TO DATABASE AND LISTENER
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
+    app.listen(SERVER_PORT, () => console.log(`Captain's Log #${SERVER_PORT}: We are lost in space...`))
 })
-
-//LISTENER
-app.listen(SERVER_PORT, () => console.log(`Captain's Log #${SERVER_PORT}: We are lost in space...`))

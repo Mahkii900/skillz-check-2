@@ -4,8 +4,13 @@ import House from '../House/House'
 import {Link} from 'react-router-dom'
 
 export default class Dashboard extends Component {
-    state = {
-        houses: []
+    constructor() {
+        super()
+        this.state = {
+            houses: []
+        }
+        this.deleteHouse = this.deleteHouse.bind(this)
+        this.getAllHouses = this.getAllHouses.bind(this)
     }
 
     getAllHouses() {
@@ -17,6 +22,11 @@ export default class Dashboard extends Component {
 
     componentDidMount() {
         this.getAllHouses()
+    }
+
+    deleteHouse(id) {
+        axios.delete(`/api/properties/${id}`)
+        .then(() => this.getAllHouses())
     }
 
     render() {
@@ -32,6 +42,8 @@ export default class Dashboard extends Component {
                         img={house.img}
                         mortgage={house.mortgage}
                         rent={house.rent}
+                        id={house.id}
+                        deleteHouse={this.deleteHouse}
                     />
                 </div>
             )

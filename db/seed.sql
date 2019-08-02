@@ -1,3 +1,5 @@
+DROP TABLE IF EXISTS houses;
+
 CREATE TABLE houses (
     id serial primary key,
     name varchar(30),
