@@ -1,5 +1,10 @@
+require('dotenv').rl
 const express = require('express')
+const massive = require('massive')
 const app = express()
-const PORT = 4000
+const {SERVER_PORT, CONNECTION_STRING} = process.env
 
-app.listen(PORT, () => console.log(`Captain's Log #${PORT}: We are lost in space...`))
+massive(CONNECTION_STRING).then(db => {
+    app.set('db', db)
+    app.listen(SERVER_PORT, () => console.log(`Captain's Log #${SERVER_PORT}: We are lost in space...`))
+})
