@@ -1,13 +1,19 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
-import store, {UPDATE_PROPERTY_RATES} from '../../store'
+import store, {UPDATE_PROPERTY_RATES, CLEAR_VALUES} from '../../store'
 
 export default class StepThree extends React.Component {
     constructor() {
         super()
         const reduxState = store.getState()
         this.state = {
+            name: reduxState.name,
+            address: reduxState.address,
+            city: reduxState.city,
+            st: reduxState.st,
+            zip: reduxState.zip,
+            img: reduxState.img,
             mortgage: reduxState.mortgage,
             rent: reduxState.rent
         }
@@ -17,6 +23,12 @@ export default class StepThree extends React.Component {
         store.subscribe(() => {
             const reduxState = store.getState()
             this.setState({
+                name: reduxState.name,
+                address: reduxState.address,
+                city: reduxState.city,
+                st: reduxState.st,
+                zip: reduxState.zip,
+                img: reduxState.img,
                 mortgage: reduxState.mortgage,
                 rent: reduxState.rent
             })
@@ -24,24 +36,40 @@ export default class StepThree extends React.Component {
     }
 
     updatePropRates() {
+        const state = this.state
         store.dispatch({
             type: UPDATE_PROPERTY_RATES,
-            payload: {mortgage: this.state.mortgage, rent: this.state.rent}
+            payload: {
+                mortgage: state.mortgage,
+                rent: state.rent,
+                name: state.name,
+                address: state.address,
+                city: state.city,
+                state: state.st,
+                zip: state.zip,
+                img: state.img
+            }
         })
     }
 
     addNewHouse() {
         const {history} = this.props
-        const {name, address, city, state, zipcode} = this.state
+        const {name, address, city, st, zip, img, mortgage, rent} = this.state
         this.updatePropRates()
         axios.post('/api/properties', {
             name: name,
             address: address,
             city: city,
-            state: state,
-            zip: zipcode
+            state: st,
+            zip: zip,
+            img: img,
+            mortgage: mortgage,
+            rent: rent
         })
         .catch(err => alert(err.response.result.response))
+        store.dispatch({
+            type: CLEAR_VALUES
+        })
         history.push('/')
     }
 
