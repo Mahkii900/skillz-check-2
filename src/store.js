@@ -16,6 +16,7 @@ const initialState = {
 export const UPDATE_PROPERTY_LOCATION = 'UPDATE_PROPERTY_LOCATION'
 export const UPDATE_PROPERTY_IMG = 'UPDATE_PROPERTY_IMG'
 export const UPDATE_PROPERTY_RATES = 'UPDATE_PROPERTY_RATES'
+export const CLEAR_VALUES = 'CLEAR_VALUES'
 
 //REDUCER
 function reducer(state = initialState, action) {
@@ -30,6 +31,17 @@ function reducer(state = initialState, action) {
         case UPDATE_PROPERTY_RATES:
             const {mortgage, rent} = action.payload
             return {...state, mortgage: mortgage, rent: rent}
+        case CLEAR_VALUES:
+            return {
+                name: '',
+                address: '',
+                city: '',
+                st: '',
+                zip: 0,
+                img: '',
+                mortgage: 0,
+                rent: 0
+            }
         default: return state
     }
 }

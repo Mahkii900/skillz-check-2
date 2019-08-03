@@ -3,8 +3,14 @@ import {Route, Link} from 'react-router-dom'
 import StepOne from '../StepOne/StepOne'
 import StepTwo from '../StepTwo/StepTwo'
 import StepThree from '../StepThree/StepThree'
+import store, {CLEAR_VALUES} from '../../store'
 
 export default class Wziard extends Component{
+    clearValues() {
+        store.dispatch({
+            type: CLEAR_VALUES
+        })
+    }
     render() {
         return (
             <div>
@@ -15,7 +21,7 @@ export default class Wziard extends Component{
                 </div>
                 <div>
                     <Link to={'/'}>
-                        <button>Cancel</button>
+                        <button onClick={() => this.clearValues()}>Cancel</button>
                     </Link>
                 </div>
             </div>
